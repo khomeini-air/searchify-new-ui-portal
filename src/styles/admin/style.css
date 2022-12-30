@@ -1,0 +1,1109 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e0e;
+  color: rgb(255, 255, 255);
+}
+
+.multipledropdown {
+  /* width: 70%; */
+  color: black;
+  /* background-color: #855aff; */
+  /* margin-bottom: 20px; */
+
+}
+
+.multipledropdown .css-1sflke2-menu {
+  background-color: #0e0e0e;
+  color: white;
+}
+
+.multipledropdown .css-1n7v3ny-option {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.loader {
+  height: 100vh;
+  /* width: 100vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #161616;
+}
+
+
+/* ******************************** Header Page Start ************************** */
+.header-container {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #1f1f1f;
+}
+
+.header-container .header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header-container .menu-btn {
+  display: none;
+}
+
+
+.header-container .header-menu .header-menu-items a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.header-container .header-menu .header-menu-items .menu-active {
+  color: #855afa;
+}
+
+.header-container .header-menu .header-menu-items span {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.header-container .headerhamburger{
+  background-color: #855afa;
+  color: #fff;
+}
+
+.offcanvas-header .btn-close{
+background-color: #855afa;
+}
+
+
+/* ******************************** Header Page End ***************************** */
+/* ******************************** TagMgmt Page Start ************************** */
+.tagmgmt-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.tagmgmt-container .top-panel {
+  height: 92%;
+  display: flex;
+}
+
+.tagmgmt-container .left-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 35%;
+}
+
+
+.tagmgmt-container .left-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.tagmgmt-container .left-panel .header .title {
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tagmgmt-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tagmgmt-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.tagmgmt-container .left-panel .multipledropdown {
+  width: 70%;
+  color: black;
+  background-color: #855aff;
+}
+
+.tagmgmt-container .left-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 73vh;
+}
+
+.tagmgmt-container .left-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.tagmgmt-container .left-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+  border-radius: 4px;
+}
+
+.mapping-container .left-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mapping-container .left-panel .scroll-panel .tag .tag-icon {
+  width: 20px;
+  padding: 0 5px;
+}
+
+.tagmgmt-container .right-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 65%;
+}
+
+.tagmgmt-container .right-panel .right-panel-first {
+  display: flex;
+  justify-content: center;
+}
+
+.tagmgmt-container .right-panel .right-panel-first .right-panel-second {
+  width: 80%;
+  height: 80%;
+  margin-top: 10vh;
+}
+
+.tagmgmt-container .right-panel .right-panel-first .right-panel-second #inputEmail,
+#inputPassword {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+  height: 6vh;
+}
+
+.tagmgmt-container .right-panel .right-panel-first .right-panel-second #exampleFormControlTextarea1 {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+}
+
+.tagmgmt-container .right-panel .right-panel-first .right-panel-second .button-first {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tagmgmt-container .right-panel .right-panel-first .right-panel-second .button-second {
+  background-color: #855aff;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tagmgmt-container .right-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.tagmgmt-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tagmgmt-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.tagmgmt-container .top-panel .left-panel .form-panel .selection-box-new {
+  height: 70px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 70%;
+}
+
+.tagmgmt-container .top-panel .left-panel .form-panel .selection-box-new .button-color {
+  background-color: #855aff;
+  color: white;
+}
+
+.tagmgmt-container .top-panel .right-panel .multibutton {
+  display: flex;
+}
+
+/* ****************************TagMgmt Page End********************************** */
+
+/* ******************************** Mapping Page Start ************************** */
+.mapping-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.mapping-container .top-panel {
+  height: 92%;
+  display: flex;
+}
+
+.mapping-container .left-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 50%;
+}
+
+.mapping-container .left-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.mapping-container .left-panel .header .title {
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mapping-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapping-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.mapping-container .left-panel .multipledropdown {
+  width: 70%;
+  color: black;
+  background-color: #855aff;
+}
+
+.mapping-container .left-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 73vh;
+}
+
+.mapping-container .left-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.mapping-container .left-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+  border-radius: 4px;
+}
+
+.mapping-container .left-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mapping-container .left-panel .scroll-panel .tag .tag-icon {
+  width: 20px;
+  padding: 0 5px;
+}
+
+.mapping-container .right-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 50%;
+}
+
+.mapping-container .right-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.mapping-container .right-panel .header .title {
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mapping-container .right-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapping-container .right-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.mapping-container .right-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 73vh;
+}
+
+.mapping-container .right-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.mapping-container .right-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+  border-radius: 4px;
+}
+
+.mapping-container .right-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mapping-container .right-panel .scroll-panel .tag .tag-icon {
+  width: 20px;
+  padding: 0 5px;
+}
+
+.disabletag {
+  background-color: black;
+  color: #855afa;
+  border: 1px solid black;
+}
+
+button:disabled {
+  background-color: black;
+  color: black;
+  border: none;
+  box-shadow: none;
+}
+
+/* ****************************Mapping Page End********************************** */
+
+/* **********************Suggestions_Create Page Start*************************** */
+.suggestionsmgmt-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.suggestionsmgmt-container .top-panel {
+  height: 92%;
+  display: flex;
+}
+
+.suggestionsmgmt-container .left-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 35%;
+}
+
+.suggestionsmgmt-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggestionsmgmt-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+  margin-left: 20px;
+}
+
+.suggestionsmgmt-container .left-panel .maindropdown {
+  display: flex;
+  /* width: 70%; */
+  width: 70%;
+  align-items: baseline;
+}
+
+.suggestionsmgmt-container .left-panel .suggestion-button {
+  background-color: #855aff;
+  color: white;
+}
+
+.suggestionsmgmt-container .left-panel .suggestion-button:hover {
+  background-color: #855aff;
+  color: white;
+}
+
+.suggestionsmgmt-container .left-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 65vh;
+}
+
+.suggestionsmgmt-container .left-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.suggestionsmgmt-container .left-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+}
+
+.suggestionsmgmt-container .left-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.suggestionsmgmt-container .left-panel .scroll-panel .tag .tag-icon {
+  border-left: 1px solid darkgray;
+  width: 20px;
+  padding: 0 5px;
+}
+
+.suggestionsmgmt-container .right-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 65%;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first {
+  display: flex;
+  justify-content: center;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first .right-panel-second {
+  width: 80%;
+  height: 80%;
+  margin-top: 10vh;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first .right-panel-second #inputEmail,
+#inputPassword {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+  height: 6vh;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first .right-panel-second #exampleFormControlTextarea1 {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first .right-panel-second .button-first {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.suggestionsmgmt-container .right-panel .right-panel-first .right-panel-second .button-second {
+  background-color: #855aff;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.suggestionsmgmt-container .right-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+/* ************************Suggestions_Create Page End*************************** */
+
+/* ************************Suggestions_List Page Start*************************** */
+
+.suggestions-list-container {
+  width: 100%;
+  height: 100vh;
+}
+
+
+.suggestions-list-container .top-panel {
+  height: 92%;
+  display: flex;
+}
+
+.suggestions-list-container .left-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 35%;
+}
+
+.suggestions-list-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggestions-list-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.suggestions-list-container .left-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 65vh;
+}
+
+.suggestions-list-container .left-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.suggestions-list-container .left-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+}
+
+.suggestions-list-container .left-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.suggestions-list-container .left-panel .scroll-panel .tag .tag-icon {
+  width: 20px;
+  padding: 0 5px;
+}
+
+.suggestions-list-container .right-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 65%;
+}
+
+.suggestions-list-container .right-panel .form-panel {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggestions-list-container .right-panel .scroll-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 77vh;
+}
+
+.suggestions-list-container .right-panel .scroll-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.suggestions-list-container .right-panel .scroll-panel .tag {
+  width: 70%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: black;
+  color: #fff;
+  margin: 5px 8px;
+}
+
+.suggestions-list-container .right-panel .scroll-panel .tag .tag-text {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.suggestions-list-container .right-panel .scroll-panel .tag .tag-icon {
+  border-left: 1px solid darkgray;
+  width: 20px;
+  padding: 0 5px;
+}
+
+.suggestions-list-container .top-panel .right-panel .button-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.suggestions-list-container .top-panel .right-panel .button-color {
+  background-color: #855aff;
+  color: white;
+}
+
+/* **************************Suggestions_List Page End*************************** */
+
+/* **********************Suggestions_Import Page Start*************************** */
+.suggestions-import-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.suggestions-import-container .top-panel {
+  height: 92%;
+  display: flex;
+}
+
+.suggestions-import-container .left-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 35%;
+}
+
+.suggestions-import-container .right-panel {
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  margin: 15px 7px 15px 15px;
+  width: 65%;
+}
+
+.suggestions-import-container .right-panel .right-panel-first {
+  display: flex;
+  justify-content: center;
+}
+
+.suggestions-import-container .right-panel .right-panel-first .right-panel-second {
+  width: 80%;
+  height: 80%;
+  margin-top: 10vh;
+}
+
+.suggestions-import-container .right-panel .right-panel-first .right-panel-second #inputEmail,
+#inputPassword {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+  height: 6vh;
+}
+
+.suggestions-import-container .right-panel .right-panel-first .right-panel-second #exampleFormControlTextarea1 {
+  background-color: #161616;
+  color: #fff;
+  border: none;
+}
+
+.suggestions-import-container .right-panel .right-panel-first .right-panel-second .button-first {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.suggestions-import-container .right-panel .right-panel-first .right-panel-second .button-second {
+  background-color: #855aff;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.suggestions-import-container .right-panel .header {
+  border-bottom: 1px solid gray;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.suggestions-import-container .left-panel .form-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggestions-import-container .left-panel .selection-box {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.suggestions-import-container .top-panel .left-panel .form-panel .selection-box-new {
+  height: 70px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 70%;
+}
+
+.suggestions-import-container .top-panel .left-panel .form-panel .selection-box-new .button-color {
+  background-color: #855aff;
+  color: white;
+}
+
+.suggestions-import-container .top-panel .right-panel .multibutton {
+  display: flex;
+}
+
+/* ************************Suggestions_Import Page End*************************** */
+
+/* *******************************Media Query Start****************************** */
+@media screen and (max-width: 1440px) {
+
+  /* ******************************* Header Page Start*************************** */
+  .header-container {
+    height: 70px;
+  }
+
+  /* ********************************* Header Page End*************************** */
+}
+
+@media screen and (max-width: 1200px) {
+
+  /* ******************************* Header Page Start*************************** */
+  .header-container .header-menu {
+    display: none;
+  }
+
+  .header-container .menu-btn {
+    display: block;
+  }
+
+  .header-container .top-menu {
+    background-color: #1e1e1e;
+  }
+
+  .header-container .top-menu .header-menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-container .top-menu .header-menu-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px;
+  }
+
+  .header-container .top-menu .header-menu-items .menu-active {
+    color: #855afa;
+  }
+
+  /* ********************************* Header Page End*************************** */
+
+  /* ******************************** mapping Page Start************************* */
+
+  .mapping-container .left-panel .scroll-panel {
+    height: 70vh;
+  }
+
+  .mapping-container .left-panel .form-panel {
+    padding: 10px;
+  }
+
+  .mapping-container .right-panel .scroll-panel {
+    height: 70vh;
+  }
+
+  /* ******************************** mapping Page End*************************** */
+
+  /* ************************ suggestions-create Page Start********************** */
+  .suggestionsmgmt-container .right-panel-second .form-control {
+    width: 90%;
+    float: right;
+  }
+
+  .suggestionsmgmt-container .left-panel .maindropdown {
+    flex-direction: column;
+  }
+
+  .suggestionsmgmt-container .left-panel .selection-box {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .suggestionsmgmt-container .left-panel .suggestionbutton {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ********************* suggestions-create Page End*************************** */
+
+  /* ********************* suggestions-import Page End*************************** */
+  .suggestions-import-container .right-panel-second .form-control {
+    width: 90%;
+    float: right;
+  }
+
+  .suggestions-import-container .top-panel .left-panel .form-panel .selection-box-new {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+  }
+
+  .suggestions-import-container .top-panel .left-panel .form-panel .fileupload{
+    width: 95%;
+    margin-bottom: 10px;
+  }
+
+
+  /* ********************* suggestions-import Page End*************************** */
+}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 768px) {
+
+  /* ****************************** Mapping Page Start*************************** */
+  .mapping-container .top-panel {
+    flex-direction: column;
+    width: 99%;
+  }
+
+  .mapping-container .left-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .mapping-container .right-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .mapping-container .left-panel .form-panel .scroll-panel {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .mapping-container .right-panel .form-panel .scroll-panel {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .mapping-container .left-panel .selection-box {
+    width: 85%;
+  }
+
+  .mapping-container .left-panel .scroll-panel .tag {
+    width: 85%;
+  }
+
+  .mapping-container .right-panel .selection-box {
+    width: 85%;
+  }
+
+  .mapping-container .right-panel .scroll-panel .tag {
+    width: 85%;
+  }
+
+  /* *********************************Mapping Page End*************************** */
+
+  /* *************************Suggestions_Create Page Start********************** */
+  .suggestionsmgmt-container .top-panel {
+    flex-direction: column;
+  }
+
+  .suggestionsmgmt-container .top-panel .left-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestionsmgmt-container .top-panel .right-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestionsmgmt-container .top-panel .right-panel .button-first {
+    display: flex;
+    justify-content: space-between !important;
+  }
+
+  .suggestionsmgmt-container .right-panel-second .form-control {
+    width: 100%;
+  }
+
+  /* ****************************Suggestions_Create Page End********************* */
+
+  /* ****************************Suggestions_List Page Start********************* */
+  .suggestions-list-container .top-panel {
+    flex-direction: column;
+  }
+
+  .suggestions-list-container .top-panel .left-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestions-list-container .top-panel .right-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestions-list-container .left-panel .form-panel .scroll-panel {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .suggestions-list-container .right-panel .form-panel .scroll-panel {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .suggestions-list-container .left-panel .selection-box {
+    width: 85%;
+  }
+
+  .suggestions-list-container .left-panel .scroll-panel .tag {
+    width: 85%;
+  }
+
+  .suggestions-list-container .right-panel .selection-box {
+    width: 85%;
+  }
+
+  .suggestions-list-container .right-panel .scroll-panel .tag {
+    width: 85%;
+  }
+
+  /* *****************************Suggestions_List Page End********************** */
+
+  /* ************************Suggestions_Import Page Start*********************** */
+
+  .suggestions-import-container .top-panel {
+    flex-direction: column;
+  }
+
+  .suggestions-import-container .top-panel .left-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestions-import-container .top-panel .right-panel {
+    margin: 10px 0px 5px 5px;
+    width: 100%;
+  }
+
+  .suggestions-import-container .top-panel .right-panel .button-first {
+    display: flex;
+    justify-content: space-between !important;
+  }
+
+  .suggestions-import-container .right-panel-second .form-control {
+    width: 100%;
+  }
+
+  .suggestions-import-container .top-panel .right-panel .multibutton {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+  }
+
+  /* ************************Suggestions_Import Page End*********************** */
+}
+
+/* ******************************Media Query End********************************* */
