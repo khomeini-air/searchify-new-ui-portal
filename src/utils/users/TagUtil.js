@@ -101,3 +101,9 @@ export const fetchDeepSuggestions = async(description)  => {
     
     return result;
 }
+
+export const findDomain = (domainName, domains) => {
+  return domains.find((element) => {
+    return element.name === domainName;
+  })
+}

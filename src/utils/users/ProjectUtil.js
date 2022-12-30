@@ -41,7 +41,7 @@ export const addWebpageAndUpdateProject = async (project, website, webpage) => {
             return obj;
         });
 
-        webpages.push(...newWebpages);
+        website.webpages.push(...newWebpages);
     }
     else {
         if(website.webpages == null){
