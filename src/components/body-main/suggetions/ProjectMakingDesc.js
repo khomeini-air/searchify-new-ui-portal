@@ -9,18 +9,24 @@ import SimpleTextarea from '../../share/inputFieldBox/SimpleTextarea'
 import ProjectSuggestionCard from '../../share/projectSuggestion/ProjectSuggestionCard'
 import styles from './style.module.css'
 import { db } from './db'
+import Loader from '../../share/loader/Loader'
 
 
 const ProjectMakingDesc = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const handleTabs = (name) => {
+        setLoading(true)
         let newDB = db.filter((item => item.name.includes(name)));
+        setLoading(false)
         setData(newDB);
     }
     useEffect(() => {
+        setLoading(true)
         setData(db)
         return () => {
+            setLoading(false)
             setData([])
         }
     }, [])
@@ -44,8 +50,8 @@ const ProjectMakingDesc = () => {
                         </div>
                         <div className={styles.project_making__wrapbox_left}>
                             <div className={styles.select__items__box}>
-                                <InputFieldSelect inputTitle='Category' 
-                                  onChange={handleSelectDomain} />
+                                <InputFieldSelect inputTitle='Category'
+                                    onChange={handleSelectDomain} />
                             </div>
                             <div className={styles.select__items__box}>
                                 <InputFieldSelect inputTitle='Tags' />
@@ -78,7 +84,7 @@ const ProjectMakingDesc = () => {
                         </div>
                         <div className={styles.__project_making_right_wrap}>
                             <div className={styles.__suggestion__project_cont}>
-                                {data.map(({ id, title, desc, btn1, btn2, btn3 }) => (
+                                {data.length > 0 ? data.map(({ id, title, desc, btn1, btn2, btn3 }) => (
                                     <ProjectSuggestionCard
                                         key={id}
                                         title={title}
@@ -87,8 +93,11 @@ const ProjectMakingDesc = () => {
                                         btn2={btn2}
                                         btn3={btn3}
                                     />
-                                ))}
-
+                                )) :
+                                    <div className={styles.loader}>
+                                        <Loader />
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
