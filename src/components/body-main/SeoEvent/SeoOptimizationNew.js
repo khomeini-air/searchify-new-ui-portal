@@ -107,12 +107,14 @@ export const SeoOptimizationNew = () => {
         const settings = {domain : domain};
         const updatedWebsite = {name: siteName, url: siteUrl, tokenId: null, ranking: null, settings: settings, templates: null, webpages: null}
         setWebsite(updatedWebsite);
-
+        const updatedWebsites = [];
         if(!isWebsiteExist(websites, siteUrl)){
             if(websites == null) {
                 setWebsites([]);
+                
             }
-            const updatedWebsites = websites;
+
+            updatedWebsites = websites;
             updatedWebsites.push(updatedWebsite);
 
             setWebsites(updatedWebsites);
