@@ -65,7 +65,7 @@ const Nav = () => {
                         <li>
                             <NavLink to="/works">
                                 <FolderIcon />
-                                <span className={styles.link__name}>My works</span>
+                                <span className={styles.link__name}>My Projects</span>
                                 <span className={`${navTitle === "work" && styles.active_Span}`} onClick={() => handleActive("work")}>
                                     <AarrowIcon />
                                 </span>

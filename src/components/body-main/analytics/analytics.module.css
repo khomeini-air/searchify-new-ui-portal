@@ -684,6 +684,7 @@
   width: 106px;
   height: 106px;
   border-radius: 100%;
+  overflow: hidden;
 }
 
 .user__Photo_action .user__photo img {

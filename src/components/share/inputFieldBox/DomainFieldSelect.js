@@ -63,7 +63,7 @@ const DomainFieldSelect = ({onDomainChange, inputTitle, clear, currentDomain }) 
 
           <div className={styles.input_file_titlebox}>
             <h4 className={styles.input_title}>{inputTitle} 
-            {(!domain && !currentDomain) && <span style={{"color": "red"}}className={styles.required}> * (Please select one domain)</span>}
+            {(!domain && !currentDomain) && <span style={{"color": "red"}}className={styles.required}> * (Input your domain here)</span>}
             
             </h4>
           </div>
