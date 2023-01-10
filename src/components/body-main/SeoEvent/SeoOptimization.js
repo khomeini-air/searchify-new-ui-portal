@@ -17,7 +17,7 @@ import { detectTagsData, fetchAllDomains, fetchSearchifyTags, simplifyTags } fro
 export const SeoOptimization = () => {
   const [user, setUser] = useState(null);
   const [project, setProject] = useState(null);
-  const [websites, setWebsites] = useState([]);
+  const [websites, setWebsites] = useState(null);
   const [website, setWebsite] = useState(null);
   const [siteName, setSiteName] = useState(null);
   const [siteUrl, setSiteUrl] = useState(null);
@@ -45,12 +45,12 @@ export const SeoOptimization = () => {
         setWebsite(getWebsite())
     }
 
-    if(getProject()?.websites != null) {
+    if(getProject()?.websites != null && websites == null) {
       setWebsites(getProject()?.websites);
     }
-    else{
-        setWebsites([]);
-    }
+    // else{
+    //     setWebsites([]);
+    // }
 
     if(location.state && location.state.show) {
       setShow(true)
@@ -69,7 +69,7 @@ export const SeoOptimization = () => {
     }
     fetchUser();
     
-  });
+  },[websites, user, project]);
   const onEditSiteNameChanged = (event) => {
     setSiteName(event);
   };

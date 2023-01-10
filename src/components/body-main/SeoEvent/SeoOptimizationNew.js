@@ -18,7 +18,7 @@ export const SeoOptimizationNew = () => {
   const [user, setUser] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
   const [project, setProject] = useState(null);
-  const [websites, setWebsites] = useState([]);
+  const [websites, setWebsites] = useState(null);
   const [website, setWebsite] = useState(null);
   const [siteName, setSiteName] = useState(null);
   const [siteUrl, setSiteUrl] = useState(null);
@@ -41,12 +41,12 @@ export const SeoOptimizationNew = () => {
       localStorage.removeItem('currentWebsite')
       setFirstLoad(false)
     }
-    if(getProject()?.websites != null) {
+    if(getProject()?.websites != null && websites == null) {
       setWebsites(getProject()?.websites);
     }
-    else{
-        setWebsites([]);
-    }
+    // else{
+    //     setWebsites([]);
+    // }
 
     const fetchUser = () => {
       if (user == null) {
@@ -61,7 +61,7 @@ export const SeoOptimizationNew = () => {
     }
     fetchUser();
     
-  });
+  }, [websites, user, project]);
 
   const validate = () => {
     if(siteName && siteUrl && domain && !isWebpageExist(websites, siteUrl)) {

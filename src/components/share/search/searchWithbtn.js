@@ -8,7 +8,7 @@ const SearchWithbtn = ({onChange, onClick, readOnly, buttonLabel, buttonDisabled
 
   const [siteUrl, setSiteUrl] = useState(null);
   const [website, setWebsite] = useState(null);
-  const [websites, setWebsites] = useState([]);
+  const [websites, setWebsites] = useState(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
 
@@ -25,12 +25,12 @@ const SearchWithbtn = ({onChange, onClick, readOnly, buttonLabel, buttonDisabled
     if(getWebsite() != null && siteUrl == null) {
         setSiteUrl(getWebsite().url);
     }
-    if(getProject()?.websites != null) {
+    if(getProject()?.websites != null && websites == null) {
       setWebsites(getProject()?.websites);
     }
-    else{
-        setWebsites([]);
-    }
+    // else{
+    //     setWebsites([]);
+    // }
 
     if(buttonDisabled !== isButtonDisabled) {
       setIsButtonDisabled(buttonDisabled)
