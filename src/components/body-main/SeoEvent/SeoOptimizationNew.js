@@ -73,20 +73,56 @@ export const SeoOptimizationNew = () => {
     }
   }
 
+  const validateSiteName = () => {
+    if(siteName) {
+      return true
+    }
+    return false;
+  }
+
+  const validateSiteUrl = () => {
+    if(siteUrl) {
+      return true
+    }
+    return false;
+  }
+
+  const validateDomain = () => {
+    if(domain) {
+      return true
+    }
+    return false;
+  }
+
   const onEditSiteNameChanged = (event) => {
     setSiteName(event);
-    validate()
+    if(validateDomain() & validateSiteUrl() && !isWebpageExist(websites, siteUrl)){
+      setButtonDisabled(false);
+      } else {
+        setButtonDisabled(true);
+  
+      }
   };
 
   const onEditSiteUrlChanged = (event) => {
     setSiteUrl(event);
     setEditSiteUrl(event);
-    validate()
+    if(validateSiteName() & validateDomain() && !isWebpageExist(websites, siteUrl)){
+      setButtonDisabled(false);
+      } else {
+        setButtonDisabled(true);
+  
+      }
   };
 
   const handleSelectDomain = async (e) => {
     setDomain(e.name)
-    validate()
+    if(validateSiteName() & validateSiteUrl() && !isWebpageExist(websites, siteUrl)){
+    setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+
+    }
   }
 
   const handleCrawling = async (event) => {
@@ -108,15 +144,16 @@ export const SeoOptimizationNew = () => {
       setLoading(false);
       const settings = { domain: domain };
       const updatedWebsite = { name: siteName, url: siteUrl, tokenId: null, ranking: null, settings: settings, templates: null, webpages: null }
-      setWebsite(updatedWebsite);
-      const updatedWebsites = [];
+      // setWebsite(updatedWebsite);
+      localStorage.setItem('currentWebsite', JSON.stringify(updatedWebsite));
+
       if (!isWebsiteExist(websites, siteUrl)) {
         if (websites == null) {
           setWebsites([]);
 
         }
 
-        updatedWebsites = websites;
+        const updatedWebsites = websites!=null?websites:[];
         updatedWebsites.push(updatedWebsite);
 
         setWebsites(updatedWebsites);
