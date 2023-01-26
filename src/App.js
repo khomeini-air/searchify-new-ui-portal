@@ -16,6 +16,9 @@ const ForgotPassword = React.lazy(() => import('./components/body-main/auth/forg
 const SEOranking = React.lazy(() => import('./components/body-main/analytics/SEOranking'));
 const AnalyticsOverview = React.lazy(() => import('./components/body-main/analytics/AnalyticsOverview'));
 const UserProfile = React.lazy(() => import('./components/body-main/analytics/UserProfile'));
+const FeaturesAI = React.lazy(() => import('./components/body-main/openAI/FeaturesAI'));
+const GenerateAI = React.lazy(() => import('./components/body-main/openAI/GenerateAI'));
+const NewsCenter = React.lazy(() => import('./components/body-main/openAI/NewsCenter'));
 
 const App = () => {
 
@@ -46,15 +49,9 @@ const App = () => {
             <Routes>
               <Route path="/projectmaking" element={<ProjectMaking />} />
             </Routes>
-            {/* <Routes>
-            <Route path="/ProjectMakingTags" element={<ProjectMakingTags />} />
-          </Routes> */}
             <Routes>
               <Route path="/works" element={<DashboardHome />} />
             </Routes>
-            {/* <Routes>
-            <Route path="/ProjectMakingRecheck" element={<ProjectMakingRecheck />} />
-          </Routes> */}
             <Routes>
               <Route path="/SEOranking" element={<SEOranking />} />
             </Routes>
@@ -63,6 +60,15 @@ const App = () => {
             </Routes>
             <Routes>
               <Route path="/UserProfile" element={<UserProfile />} />
+            </Routes>
+            <Routes>
+              <Route path="/features" element={<FeaturesAI />} />
+            </Routes>
+            <Routes>
+              <Route path="/text-generator/:id" element={<GenerateAI />} />
+            </Routes>
+            <Routes>
+              <Route path="/news" element={<NewsCenter />} />
             </Routes>
 
         </div>
