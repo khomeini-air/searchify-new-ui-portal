@@ -3,20 +3,21 @@ import styles from './auth.module.css';
 import shapeImg3 from '../../../assets/img/gradient-shape3.png'
 import shapeImg4 from '../../../assets/img/gradient-shape4.png'
 import brandLogo from '../../../assets/img/Searchify-logo.png'
-import { AiOutlineEyeInvisible} from "react-icons/ai";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { HiOutlineMail } from "react-icons/hi";
 import { CiLock } from "react-icons/ci";
 import { BiUser } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CONFIG from "../../../config/users/Constant";
+import Loader from "../../share/loader/Loader";
 
 
 
 const SignUp = () => {
-
+    const [pending, setPending] = useState(false);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [pwd, setPwd] = useState("");
@@ -27,7 +28,6 @@ const SignUp = () => {
     });
 
     const navigate = useNavigate()
-    toast.configure()
 
     const handleShowPassword = (name) => {
         if (name === "password") {
@@ -39,7 +39,7 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         if (validator.isEmpty(email)) {
-            toast("Please Enter Email!", {
+            toast.error("Please Enter Email!", {
                 autoClose: 1500,
                 style: { backgroundColor: "black", color: "white" },
             });
@@ -107,20 +107,24 @@ const SignUp = () => {
             });
             e.preventDefault();
         } else {
-            const user =  await fetch(CONFIG.hostname + ':8081/users/signup', {
-                body: JSON.stringify({username: username, password: pwd, email: email, roles: ['ROLE_CLIENT']}),
+            setPending(true);
+            const user = await fetch(CONFIG.hostname + ':8081/users/signup', {
+                body: JSON.stringify({ username: username, password: pwd, email: email, roles: ['ROLE_CLIENT'] }),
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                        method: 'POST'
-                    });
-
+                method: 'POST'
+            });
+            if (user.status === 200) {
+                setPending(false);
+                navigate('/signin')
+            }
             toast.success("Registration Successful, Please Login", {
                 autoClose: 1500,
                 style: { backgroundColor: "black", color: "white" },
             });
             e.preventDefault();
-            navigate('/signin')
+
         }
     }
 
@@ -139,9 +143,9 @@ const SignUp = () => {
                             <div className={styles.app_auth_form_group}>
                                 <div className={styles.app_gradient_box}>
                                     <div className={styles.app_auth_iconbox}>
-                                        <span className={styles.app_auth_form_icon}><HiOutlineMail/></span>
+                                        <span className={styles.app_auth_form_icon}><HiOutlineMail /></span>
                                     </div>
-                                    <input className={styles.app_auth_inputfild} 
+                                    <input className={styles.app_auth_inputfild}
                                         autoComplete="off"
                                         value={email}
                                         onChange={(e) => {
@@ -153,9 +157,9 @@ const SignUp = () => {
                             <div className={styles.app_auth_form_group}>
                                 <div className={styles.app_gradient_box}>
                                     <div className={styles.app_auth_iconbox}>
-                                    <span className={styles.app_auth_form_icon}><BiUser/></span>
+                                        <span className={styles.app_auth_form_icon}><BiUser /></span>
                                     </div>
-                                    <input className={styles.app_auth_inputfild} 
+                                    <input className={styles.app_auth_inputfild}
                                         autoComplete="off"
                                         value={username}
                                         onChange={(e) => {
@@ -167,13 +171,13 @@ const SignUp = () => {
                             <div className={styles.app_auth_form_group}>
                                 <div className={styles.app_gradient_box}>
                                     <div className={styles.app_auth_iconbox}>
-                                    <span className={styles.app_auth_form_icon}><CiLock/></span>
-                                        <span className={styles.app_auth_form_icon} 
-                                        onClick={() => {
-                                        handleShowPassword("password");
-                                    }}><AiOutlineEyeInvisible/></span>
+                                        <span className={styles.app_auth_form_icon}><CiLock /></span>
+                                        <span className={styles.app_auth_form_icon}
+                                            onClick={() => {
+                                                handleShowPassword("password");
+                                            }}>{showPassword.password ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}</span>
                                     </div>
-                                    <input className={styles.app_auth_inputfild} 
+                                    <input className={styles.app_auth_inputfild}
                                         type={showPassword.password ? "text" : "password"}
                                         autoComplete="off"
                                         value={pwd}
@@ -186,14 +190,14 @@ const SignUp = () => {
                             <div className={styles.app_auth_form_group}>
                                 <div className={styles.app_gradient_box}>
                                     <div className={styles.app_auth_iconbox}>
-                                    <span className={styles.app_auth_form_icon}><CiLock/></span>
-                                        <span className={styles.app_auth_form_icon}  
-                                        onClick={() => {
-                                        handleShowPassword("cpassword");
-                                    }}><AiOutlineEyeInvisible/></span>
+                                        <span className={styles.app_auth_form_icon}><CiLock /></span>
+                                        <span className={styles.app_auth_form_icon}
+                                            onClick={() => {
+                                                handleShowPassword("cpassword");
+                                            }}>{showPassword.cpassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}</span>
                                     </div>
-                                    <input className={styles.app_auth_inputfild} 
-                                        type={showPassword.cpassword ? "text" : "password"} 
+                                    <input className={styles.app_auth_inputfild}
+                                        type={showPassword.cpassword ? "text" : "password"}
                                         autoComplete="off"
                                         value={cpwd}
                                         onChange={(e) => {
@@ -206,7 +210,7 @@ const SignUp = () => {
                                 <div className={styles.app_auth_linkbox}><span className={styles.link_boxtitle}>Already an account? </span> <a className={styles.app_auth_linkto} href='/login'>Signin</a></div>
                                 <div className={styles.app_auth_btnbox}>
                                     <input type="button" className={styles.app_auth_btn} name="button" value="Sign Up"
-                                        onClick = {handleSubmit}
+                                        onClick={handleSubmit}
                                     />
                                 </div>
                             </div>
@@ -214,6 +218,14 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
+            {/* loader */}
+            {
+                pending &&
+                <div className={styles.loader}>
+                    <Loader />
+                </div>
+            }
         </div>
     )
 }

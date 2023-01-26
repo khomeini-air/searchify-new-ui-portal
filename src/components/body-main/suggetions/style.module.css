@@ -166,7 +166,15 @@ margin-bottom: 152px;
   height: 5px;
   background: var(--primary-color);
 }
-
+.loader{
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: 99999;
+}
+.loader .loader{
+  width: 50px;
+}
 @media screen and (max-width:1199px) {
   .app_seo_project_making {
     width: calc(100vw - 255px);

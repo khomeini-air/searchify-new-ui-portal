@@ -10,6 +10,7 @@ import SimpleTextarea from '../../share/inputFieldBox/SimpleTextarea'
 import ProjectSuggestionCard from '../../share/projectSuggestion/ProjectSuggestionCard'
 import styles from './style.module.css'
 import { db } from './db'
+import Loader from '../../share/loader/Loader';
 
 
 const ProjectMaking = () => {
@@ -66,7 +67,7 @@ const ProjectMaking = () => {
                         </div>
                         <div className={styles.__project_making_right_wrap}>
                             <div className={styles.__suggestion__project_cont}>
-                                {data.map(({ id, title, desc, btn1, btn2, btn3 }) => (
+                            {data.length > 0 ? data.map(({ id, title, desc, btn1, btn2, btn3 }) => (
                                     <ProjectSuggestionCard
                                         key={id}
                                         title={title}
@@ -75,7 +76,11 @@ const ProjectMaking = () => {
                                         btn2={btn2}
                                         btn3={btn3}
                                     />
-                                ))}
+                                )) :
+                                    <div className={styles.loader}>
+                                        <Loader />
+                                    </div>
+                                }
 
                             </div>
                         </div>

@@ -1,5 +1,5 @@
-import React, {  useEffect, useState }  from 'react'
-import { Link,  useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './SeoEvent.module.css'
 import shapeImg3 from '../../../assets/img/gradient-shape3.png'
 import SearchWithbtn from '../../share/search/searchWithbtn'
@@ -11,8 +11,9 @@ import SearchInsightResult from '../../core/searchInsight/SearchInsightResult'
 import SiteInsightResult from '../../core/searchInsight/SiteInsightResult'
 import CONFIG from "../../../config/users/Constant";
 import { getUser, userLogout } from "../../../utils/users/Helpers";
-import {getProject, isWebsiteExist, updateProject, getCrawlingData, getWebsite, isWebpageExist} from "../../../utils/users/ProjectUtil";
+import { getProject, isWebsiteExist, updateProject, getCrawlingData, getWebsite, isWebpageExist } from "../../../utils/users/ProjectUtil";
 import { detectTagsData, fetchAllDomains, fetchSearchifyTags, simplifyTags } from "../../../utils/users/TagUtil";
+import Loader from '../../share/loader/Loader';
 
 export const SeoOptimizationNew = () => {
   const [user, setUser] = useState(null);
@@ -37,11 +38,11 @@ export const SeoOptimizationNew = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(firstLoad) {
+    if (firstLoad) {
       localStorage.removeItem('currentWebsite')
       setFirstLoad(false)
     }
-    if(getProject()?.websites != null && websites == null) {
+    if (getProject()?.websites != null && websites == null) {
       setWebsites(getProject()?.websites);
     }
     // else{
@@ -50,101 +51,139 @@ export const SeoOptimizationNew = () => {
 
     const fetchUser = () => {
       if (user == null) {
-          const currentUser = getUser();   
-          const currentProject = getProject();
-          if (currentUser == null) {
-              navigate("/");
-          }
-          setUser(currentUser);
-          setProject(currentProject);
+        const currentUser = getUser();
+        const currentProject = getProject();
+        if (currentUser == null) {
+          navigate("/");
+        }
+        setUser(currentUser);
+        setProject(currentProject);
       }
     }
     fetchUser();
-    
+
   }, [websites, user, project]);
 
   const validate = () => {
-    if(siteName && siteUrl && domain && !isWebpageExist(websites, siteUrl)) {
-       setButtonDisabled(false);
+    if (siteName && siteUrl && domain && !isWebpageExist(websites, siteUrl)) {
+      setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
 
     }
   }
 
+  const validateSiteName = () => {
+    if(siteName) {
+      return true
+    }
+    return false;
+  }
+
+  const validateSiteUrl = () => {
+    if(siteUrl) {
+      return true
+    }
+    return false;
+  }
+
+  const validateDomain = () => {
+    if(domain) {
+      return true
+    }
+    return false;
+  }
+
   const onEditSiteNameChanged = (event) => {
     setSiteName(event);
-    validate()
+    if(validateDomain() & validateSiteUrl() && !isWebpageExist(websites, siteUrl)){
+      setButtonDisabled(false);
+      } else {
+        setButtonDisabled(true);
+  
+      }
   };
 
   const onEditSiteUrlChanged = (event) => {
     setSiteUrl(event);
     setEditSiteUrl(event);
-    validate()
+    if(validateSiteName() & validateDomain() && !isWebpageExist(websites, siteUrl)){
+      setButtonDisabled(false);
+      } else {
+        setButtonDisabled(true);
+  
+      }
   };
 
   const handleSelectDomain = async (e) => {
     setDomain(e.name)
-    validate()
+    if(validateSiteName() & validateSiteUrl() && !isWebpageExist(websites, siteUrl)){
+    setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+
+    }
   }
 
   const handleCrawling = async (event) => {
-    if(buttonDisabled){
+    if (buttonDisabled) {
       return;
     }
-    setLoading(loading);
+    setLoading(true);
     setIsRetry(false);
     const res = await fetch(CONFIG.hostname + ":8082/crawl/", {
-        body: JSON.stringify({ link: siteUrl }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-        method: "POST",
+      body: JSON.stringify({ link: siteUrl }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
     });
     const data = await res.json();
     const text = [];
     if (data.current.error != "invalid url") {
-        const settings = {domain : domain};
-        const updatedWebsite = {name: siteName, url: siteUrl, tokenId: null, ranking: null, settings: settings, templates: null, webpages: null}
-        setWebsite(updatedWebsite);
-        const updatedWebsites = [];
-        if(!isWebsiteExist(websites, siteUrl)){
-            if(websites == null) {
-                setWebsites([]);
-                
-            }
+      setLoading(false);
+      const settings = { domain: domain };
+      const updatedWebsite = { name: siteName, url: siteUrl, tokenId: null, ranking: null, settings: settings, templates: null, webpages: null }
+      // setWebsite(updatedWebsite);
+      localStorage.setItem('currentWebsite', JSON.stringify(updatedWebsite));
 
-            updatedWebsites = websites;
-            updatedWebsites.push(updatedWebsite);
+      if (!isWebsiteExist(websites, siteUrl)) {
+        if (websites == null) {
+          setWebsites([]);
 
-            setWebsites(updatedWebsites);
-            const currentProject = project;
-            currentProject.websites = updatedWebsites;
-            setProject(currentProject)
-            const resProject = await updateProject(currentProject);
-            const resultProject = await resProject.json();
-            localStorage.setItem('project', JSON.stringify(resultProject));
-            localStorage.setItem('currentWebsite', JSON.stringify(updatedWebsite));
         }
-        setCrawlingResult(data.current);
-        setCrawlingInternalLinks(data.internalResources);
 
-        localStorage.setItem('crawlingData', JSON.stringify(data));
-        setShow(true);
-        setShowWebsiteOverview(!showWebsiteOverview);
-        //Get all domains
-        const fetchDomainsResult = await fetchAllDomains();
-        const allDomains = await fetchDomainsResult.json();
-        const fetchTagByDetectedDomain = await fetchSearchifyTags(domain);
-        const allTags = await fetchTagByDetectedDomain.json();
-        navigate('/seooptimization',{state: {show: true}})
+        const updatedWebsites = websites!=null?websites:[];
+        updatedWebsites.push(updatedWebsite);
+
+        setWebsites(updatedWebsites);
+        const currentProject = project;
+        currentProject.websites = updatedWebsites;
+        setProject(currentProject)
+        const resProject = await updateProject(currentProject);
+        const resultProject = await resProject.json();
+        localStorage.setItem('project', JSON.stringify(resultProject));
+        localStorage.setItem('currentWebsite', JSON.stringify(updatedWebsite));
+      }
+      setCrawlingResult(data.current);
+      setCrawlingInternalLinks(data.internalResources);
+
+      localStorage.setItem('crawlingData', JSON.stringify(data));
+      setShow(true);
+      setShowWebsiteOverview(!showWebsiteOverview);
+      //Get all domains
+      const fetchDomainsResult = await fetchAllDomains();
+      const allDomains = await fetchDomainsResult.json();
+      const fetchTagByDetectedDomain = await fetchSearchifyTags(domain);
+      const allTags = await fetchTagByDetectedDomain.json();
+      navigate('/seooptimization', { state: { show: true } })
 
     }
 
     else {
-        setIsRetry(true);
+      setIsRetry(true);
     }
-};
+  };
 
 
   return (
@@ -158,25 +197,32 @@ export const SeoOptimizationNew = () => {
 
           <div className={styles.project_action_box}>
             <div className={styles.editing__titlebox}>
-              <EditTitle onChange={onEditSiteNameChanged} editingTitle={true} isNew={true}/>
+              <EditTitle onChange={onEditSiteNameChanged} editingTitle={true} isNew={true} />
             </div>
             <div className={styles.__drop_action_btn}>
               <div className={styles.select__items__box}>
                 <DomainFieldSelect  onDomainChange={handleSelectDomain} 
                                     inputTitle='Select Industry' />
+
               </div>
             </div>
           </div>
           <div className={styles.search__inputbox}>
-            <SearchWithbtn 
-                buttonLabel={"Check & Create"}
-                onChange={onEditSiteUrlChanged}
-                onClick={handleCrawling}
-                readOnly={false}
-                buttonDisabled = {buttonDisabled}
-              />
+            <SearchWithbtn
+              buttonLabel={"Check & Create"}
+              onChange={onEditSiteUrlChanged}
+              onClick={handleCrawling}
+              readOnly={false}
+              buttonDisabled={buttonDisabled}
+            />
           </div>
         </div>
+        {
+          loading &&
+          <div className={styles.loader}>
+            <Loader />
+          </div>
+        }
       </div>
     </>
   )
