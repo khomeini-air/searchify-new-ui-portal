@@ -22,6 +22,13 @@ const WebsiteKeywordOverview = React.lazy(() => import('./components/body-main/a
 const KeywordGeneretor = React.lazy(() => import('./components/body-main/analytics/keywordgeneretor/KeywordGeneretor')) ;
 const KeywordGeneretorOverview = React.lazy(() => import('./components/body-main/analytics/keywordgeneretor/overview'));
 
+const KeywordGap = React.lazy(() => import('./components/body-main/analytics/keywordgap/keywordgap'));
+const KeywordGapOverview = React.lazy(() => import('./components/body-main/analytics/keywordgap/overview'));
+const KeywordMannager = React.lazy(() => import('./components/body-main/analytics/keywordmanager/keywordmannager'));
+const KeywordOverview = React.lazy(() => import('./components/body-main/analytics/keywordmanager/overview'));
+const Organicsearch = React.lazy(() => import('./components/body-main/analytics/organicresearch/organicsearch'));
+const OrganicsearchOverview  = React.lazy(() => import('./components/body-main/analytics/organicresearch/overview'));
+
 const AnalyticsOverview = React.lazy(() => import('./components/body-main/analytics/AnalyticsOverview'));
 const UserProfile = React.lazy(() => import('./components/body-main/analytics/UserProfile'));
 const FeaturesAI = React.lazy(() => import('./components/body-main/openAI/FeaturesAI'));
@@ -88,6 +95,28 @@ const App = () => {
             <Routes>
               <Route path="/dashboard" element={<AnalyticsOverview />} />
             </Routes>
+
+            <Routes>
+            <Route path="/keywordgap/home" element={<KeywordGap />} />
+          </Routes>
+          <Routes>
+            <Route path="/keywordgap/overview" element={<KeywordGapOverview />} />
+          </Routes>
+
+          <Routes>
+            <Route path="/keywordmannager/home" element={<KeywordMannager />} />
+          </Routes>
+          <Routes>
+            <Route path="/keywordmannager/overview" element={<KeywordOverview />} />
+          </Routes>
+
+          <Routes>
+            <Route path="/organicsearch/home" element={<Organicsearch />} />
+          </Routes>
+          <Routes>
+            <Route path="/organicsearch/overview" element={<OrganicsearchOverview />} />
+          </Routes>
+
             <Routes>
               <Route path="/UserProfile" element={<UserProfile />} />
             </Routes>
