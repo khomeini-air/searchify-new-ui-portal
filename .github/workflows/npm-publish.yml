@@ -10,9 +10,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-#     - name: Build & Run
-#       run: |
-#         sudo npm install
-#         sudo npm run build
-#         sudo npm run start
+    - name: Build & Run
+      if: ${{ failure() || success() }}
+      run: bash /home/ubuntu/searchify/searchify-new-ui-portal/scripts/deploy.sh
 
