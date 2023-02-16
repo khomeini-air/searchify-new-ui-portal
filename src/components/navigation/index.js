@@ -68,6 +68,9 @@ const Nav = () => {
                                             <Link to="/keywordgeneretor/home"><GraphIcon />Generate Keywords</Link>
                                         </li>
                                         <li>
+                                            <Link to="/trafficsAnalytics/overview"><GraphIcon />Traffic Analytics</Link>
+                                        </li>
+                                        <li>
                                             <Link to="/keywordgap/home"><GraphIcon />keyword Gap</Link>
                                         </li>
                                         <li>

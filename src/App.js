@@ -28,6 +28,8 @@ const KeywordMannager = React.lazy(() => import('./components/body-main/analytic
 const KeywordOverview = React.lazy(() => import('./components/body-main/analytics/keywordmanager/overview'));
 const Organicsearch = React.lazy(() => import('./components/body-main/analytics/organicresearch/organicsearch'));
 const OrganicsearchOverview  = React.lazy(() => import('./components/body-main/analytics/organicresearch/overview'));
+const TrafficsAnalytics = React.lazy(() => import('./components/body-main/analytics/traffic-analytics/trafficsAnalytics'));
+const TrafficsAnalyticsOverview  = React.lazy(() => import('./components/body-main/analytics/traffic-analytics/TrafficOverview'));
 
 const AnalyticsOverview = React.lazy(() => import('./components/body-main/analytics/AnalyticsOverview'));
 const UserProfile = React.lazy(() => import('./components/body-main/analytics/UserProfile'));
@@ -117,9 +119,17 @@ const App = () => {
             <Route path="/organicsearch/overview" element={<OrganicsearchOverview />} />
           </Routes>
 
+
+          <Routes>
+            <Route path="/trafficsAnalytics/home" element={<TrafficsAnalytics />} />
+          </Routes>
+          <Routes>
+            <Route path="/trafficsAnalytics/overview" element={<TrafficsAnalyticsOverview />} />
+          </Routes>
+
             <Routes>
               <Route path="/UserProfile" element={<UserProfile />} />
-            </Routes>
+            </Routes> 
             <Routes>
               <Route path="/features" element={<FeaturesAI />} />
             </Routes>
