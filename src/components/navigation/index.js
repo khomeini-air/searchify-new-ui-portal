@@ -79,6 +79,15 @@ const Nav = () => {
                                         <li>
                                             <Link to="/organicsearch/home"><GraphIcon />Organic Search</Link>
                                         </li>
+                                        <li>
+                                            <Link to="/keywordoverview/home"><GraphIcon />Keyword Overview</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/domainoverview/home"><GraphIcon />Domain Overview</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/backlink/home"><GraphIcon />Backlink Analytics</Link>
+                                        </li>
                                     </ul>
                                 }
                             </div>

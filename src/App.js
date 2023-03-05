@@ -30,6 +30,12 @@ const Organicsearch = React.lazy(() => import('./components/body-main/analytics/
 const OrganicsearchOverview  = React.lazy(() => import('./components/body-main/analytics/organicresearch/overview'));
 const TrafficsAnalytics = React.lazy(() => import('./components/body-main/analytics/traffic-analytics/trafficsAnalytics'));
 const TrafficsAnalyticsOverview  = React.lazy(() => import('./components/body-main/analytics/traffic-analytics/TrafficOverview'));
+const KeywordOverviewHome = React.lazy(() => import('./components/body-main/analytics/keywordoverview/KeywordOverviewHome'));
+const KeywordOverviewDetailsOverview  = React.lazy(() => import('./components/body-main/analytics/keywordoverview/KeywordOverviewDetails'));
+const DomainOverviewHome = React.lazy(() => import('./components/body-main/analytics/domainOverview/DomainOverviewHome'));
+const DomainOverviewDetails  = React.lazy(() => import('./components/body-main/analytics/domainOverview/DomainOverviewDetails'));
+const BacklinkAnalyticHome = React.lazy(() => import('./components/body-main/analytics/backlinkAnalytics/BacklinkAnalyticsHome'));
+const BacklinkAnalyticOverview  = React.lazy(() => import('./components/body-main/analytics/backlinkAnalytics/BacklinkAnalyticsOverview'));
 
 const AnalyticsOverview = React.lazy(() => import('./components/body-main/analytics/AnalyticsOverview'));
 const UserProfile = React.lazy(() => import('./components/body-main/analytics/UserProfile'));
@@ -125,6 +131,25 @@ const App = () => {
           </Routes>
           <Routes>
             <Route path="/trafficsAnalytics/overview" element={<TrafficsAnalyticsOverview />} />
+          </Routes>
+          <Routes>
+            <Route path="/keywordoverview/home" element={<KeywordOverviewHome />} />
+          </Routes>
+          <Routes>
+            <Route path="/keywordoverview/overview" element={<KeywordOverviewDetailsOverview />} />
+          </Routes>
+          <Routes>
+          <Route path="/domainoverview/home" element={<DomainOverviewHome />} />
+          </Routes>
+          <Routes>
+            <Route path="/domainoverview/overview" element={<DomainOverviewDetails />} />
+          </Routes>
+
+          <Routes>
+         <Route path="/backlink/home" element={<BacklinkAnalyticHome />} />
+          </Routes>
+          <Routes>
+            <Route path="/backlink/overview" element={<BacklinkAnalyticOverview />} />
           </Routes>
 
             <Routes>

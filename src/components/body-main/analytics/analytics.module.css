@@ -2663,7 +2663,7 @@ b {
 .filter_key__search .filter_search_inputbox .search_inputbar {
   width: 100%;
 }
-
+.searchList__main_box,
 .searchList__main_box {
   background: var(--light-black);
   border: 1px solid rgba(105, 103, 103, 0.88);
@@ -2866,8 +2866,11 @@ li:empty {
   cursor: pointer;
   justify-content: space-between;
   gap: 10px;
+  width: 90px;
 }
-
+.country__select_widget .selected_country_list > span{
+padding-left: 15px;
+}
 .competitor__controll_box .country__select_widget .arrow_down {
   font-size: 14px;
   line-height: 19px;
@@ -2940,6 +2943,7 @@ li:empty {
   pointer-events: none;
   width: 100%;
   height: 100%;
+
 }
 
 .selected__item_text {
@@ -2952,6 +2956,7 @@ li:empty {
   justify-content: space-between;
   gap: 7px;
   align-items: center;
+  white-space: nowrap;
 }
 
 .selected__item_text .arrow_down {
@@ -2998,7 +3003,6 @@ li:empty {
 
 .keyword__input_fildbox .seal__text_color span {
   padding: 5px 7px;
-  background-color: rgba(196, 229, 254, 0.5);
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -3012,13 +3016,15 @@ li:empty {
   width: 16px;
   height: 16px;
   display: block;
-  background: rgba(196, 229, 254, 0.5);
+
 }
 
 .keyword__input_item_mainbox:not(:last-child) {
   margin-bottom: 35px;
 }
-
+.compare__fild__box_cont .keyword__input_item_mainbox .seal__text_color span:empty{
+  background: rgb(196, 229, 254, .5);
+}
 .keyword__input_item_mainbox:nth-child(2) .keyword_inputfild__contbox .keyword__input_fildbox .seal__text_color span:empty {
   background: rgb(89, 221, 170);
 }
@@ -3568,7 +3574,7 @@ li:empty {
   margin-bottom: auto;
   bottom: 0;
   left: 0;
-  display: none;
+  /* display: none; */
   right: 0;
   margin-top: auto;
 }
@@ -5004,9 +5010,9 @@ background: var(--bg-color);
   position: relative;
 }
 
-.keyword__select_widget_box {
+/* .keyword__select_widget_box {
   display: none;
-}
+} */
 
 .traffics__compare_box .compare__fild__box_cont {
   margin-bottom: 65px;
@@ -5675,4 +5681,181 @@ z-index: 99;
 
 .insight__tract_by_time > ul li:not(:last-child){
 margin-bottom: 12px;
+}
+/* country select style */
+.selected_country_list{
+  position: relative;
+}
+.openListcontent{
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  overflow-y: scroll;
+  left: 0;
+  top: 45px;
+  padding: 15px 10px 10px;
+  background: #161515;
+  border: 1px solid rgba(105, 103, 103, 0.88);
+border-radius: 13px;
+z-index: 9;
+
+}
+.country_container {
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
+  display: flex;
+  margin-bottom: 8px;
+}
+.image_container {
+  width: 25px;
+}
+.country_container > h6{
+  font-size: 16px;
+}
+.image_container img {
+  width: 100%;
+}
+.user__permission__list_item,
+.key__group__list{
+  background: #161515;
+  border: 1px solid rgba(105, 103, 103, 0.88);
+  padding: 15px 10px;
+  border-radius: 13px;
+  position: absolute;
+  left: 0;
+  top: 57px;
+  width: 100%;
+  z-index: 9;
+  white-space: nowrap;
+}
+.user__permission__list_item{width: 140px;}
+.user__permission__list_item li:not(:last-child),
+.key__group__list li:not(:last-child){
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.user__permition_selectbox > .user__permission_select_item{
+  white-space: nowrap;
+}
+
+/* keyword overview page */
+.info_modal_full{
+  width: 100%;
+  padding: 30px 30px;
+border: 1px solid rgba(105, 103, 103, 0.26);
+margin-bottom: 30px;
+border-radius: 13px;
+}
+.info_modal_full .info_details_img{
+  width: 100%;
+}
+.site__keywords__filter_handle{gap: 15px !important;}
+
+.site__keywords__filter_handle button{
+  border-radius: 13px;
+  padding: 15px 20px;
+  background-color: var(--bg-color);
+  border: 1px solid rgba(105, 103, 103, 0.26);
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 21px;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 160px;
+  position: relative;
+}
+.site__keywords__filter_handle button:first-child::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(180deg,
+      rgba(146, 107, 255, 0.5) 0%,
+      rgba(232, 87, 130, 0.5) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: add, add;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+.site__keywords__filter_handle button:first-child{
+  width: 120px;
+}
+.site__keywords__filter_handle button:last-child{
+  background: linear-gradient(90deg, #e85782 0%, #926bff 100%);
+}
+
+.info_details_steps{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+}
+.info_details_steps .info_details__items{
+  padding: 25px 20px;
+  border-radius: 12px;
+  background: var(--bg-color);
+  position: relative;
+}
+.info_details_steps .info_details__items::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(180deg,
+      rgba(146, 107, 255, 0.5) 0%,
+      rgba(232, 87, 130, 0.5) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: add, add;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+.info_details_steps .info_details__items h4{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.info_details_steps .info_details__items p{
+  font-size: 15px;
+}
+.info_details_steps .info_details__items p:not(:last-child){
+  margin-bottom: 12px;
+}
+
+.site__link_item .country_site__link{
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: var(--bg-color);
+  position: relative;
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 21px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.site__link_item .country_site__link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(180deg,
+      rgba(146, 107, 255, 0.5) 0%,
+      rgba(232, 87, 130, 0.5) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: add, add;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }

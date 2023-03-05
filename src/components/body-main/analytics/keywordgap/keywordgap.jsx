@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import styles from '../analytics.module.css';
 import shapeImg6 from '../../../../assets/img/gradient-shape6.png';
 import shapeImg3 from '../../../../assets/img/gradient-shape3.png';
@@ -6,13 +6,39 @@ import shapeImg4 from '../../../../assets/img/gradient-shape4.png';
 import infoModal1 from '../../../../assets/img/info-modal1.png';
 import infoModal2 from '../../../../assets/img/info-modal2.png';
 import infoModal3 from '../../../../assets/img/info-modal3.png';
-// import SelectItems from '../../../share/select/SelectItems';
-// import { Link } from 'react-router-dom'
-import {
-  TfiAngleDown,
+import { useNavigate } from 'react-router-dom';
+import SubDomain from './SubDomain';
+import KeywordList from './KeywordList';
 
-} from 'react-icons/tfi';
-const keywordgap = () => {
+
+import CountrySelect from '../../../share/countryselect/CountrySelect';
+const Keywordgap = () => {
+  const [openMoreItem, setMoreItem] = useState(false);
+
+  const navigate = useNavigate();
+  const [list__count] = useState([
+    {
+      id: 1,
+      seal__text_color: "color_1"
+    },
+    {
+      id: 2,
+      seal__text_color: "color_2"
+    },
+    {
+      id: 3,
+      seal__text_color: "color_3"
+    },
+    {
+      id: 4,
+      seal__text_color: "color_4"
+    },
+    {
+      id: 5,
+      seal__text_color: "color_5"
+    }
+  ]);
+
   return (
     <>
       <section className={styles.keyword__wrap_section}>
@@ -42,196 +68,41 @@ const keywordgap = () => {
                 </p>
                 <div className={styles.keyword__main_compere__box}>
 
-                  <div className={styles.keyword__input_item_mainbox}>
-                    <div className={styles.keyword_inputfild__contbox}>
-                      <div className={styles.keyword__input_fildbox}>
-                        <label
-                          htmlFor="text"
-                          className={styles.seal__text_color}
-                        >
-                          <span>You</span>
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.add__domain_fild}
-                          placeholder="add domain"
-                        />
+           {
+                    list__count.map((item, index1) => (
+                      <div className={styles.keyword__input_item_mainbox}>
+                        <div className={styles.keyword_inputfild__contbox}>
+                          <div className={styles.keyword__input_fildbox}>
+                            <label
+                              htmlFor="text"
+                              className={`${styles.seal__text_color}`}
+                            >
+                              <span className={`${item.seal__text_color}`}>{index1 === 0 ? "You" : ""}</span>
+                            </label>
+                            <input
+                              type="text"
+                              className={styles.add__domain_fild}
+                              placeholder="add domain"
+                            />
+                          </div>
+                          <SubDomain />
+                        </div>
+                        <KeywordList />
                       </div>
-                      <div className={styles.select_domain_type}>
-                        <span className={styles.selected__item_text}>
-                        root domain <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                        </span>
-                        <ul className={styles.keyword__select_widget_box}>
-                        <li className={styles.select__widget__items}>Root domain</li>
-                        <li className={styles.select__widget__items}>Exact URl</li>
-                        <li className={styles.select__widget__items}>Subdomain</li>
-                          <li className={styles.select__widget__items}>Subfolder</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.select__keyword_type}>
-                      <span className={styles.selected__item_text}>
-                        organic keywords <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                      </span>
-                      <ul className={styles.keyword__select_widget_box}>
-                      <li className={styles.select__widget__items}>Organic keywords</li>
-                      <li className={styles.select__widget__items}>Paid keywords</li>
-                        <li className={styles.select__widget__items}>PLA kerwords</li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* ===================== */}
-
-                  <div className={styles.keyword__input_item_mainbox}>
-                    <div className={styles.keyword_inputfild__contbox}>
-                      <div className={styles.keyword__input_fildbox}>
-                        <label
-                          htmlFor="text"
-                          className={styles.seal__text_color}
-                        >
-                          <span></span>
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.add__domain_fild}
-                          placeholder="add domain"
-                        />
-                      </div>
-                      <div className={styles.select_domain_type}>
-                        <span className={styles.selected__item_text}>
-                          root domain <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                        </span>
-                        <ul className={styles.keyword__select_widget_box}>
-                        <li className={styles.select__widget__items}>Root domain</li>
-                        <li className={styles.select__widget__items}>Exact URl</li>
-                        <li className={styles.select__widget__items}>Subdomain</li>
-                          <li className={styles.select__widget__items}>Subfolder</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.select__keyword_type}>
-                      <span className={styles.selected__item_text}>
-                        organic keywords <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                      </span>
-                      <ul className={styles.keyword__select_widget_box}>
-                      <li className={styles.select__widget__items}>Organic keywords</li>
-                      <li className={styles.select__widget__items}>Paid keywords</li>
-                        <li className={styles.select__widget__items}>PLA kerwords</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* <div className={styles.keyword__input_item_mainbox}>
-                    <div className={styles.keyword_inputfild__contbox}>
-                      <div className={styles.keyword__input_fildbox}>
-                        <label
-                          htmlFor="text"
-                          className={styles.seal__text_color}
-                        >
-                          <span></span>
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.add__domain_fild}
-                          placeholder="add domain"
-                        />
-                      </div>
-
-                      <div className={styles.select_domain_type}>
-                        <span className={styles.selected__item_text}>
-                          root domain  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                        </span>
-                        <ul className={styles.keyword__select_widget_box}>
-                          <li className={styles.select__widget__items}></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.select__keyword_type}>
-                      <span className={styles.selected__item_text}>
-                        organic keywords  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                      </span>
-                      <ul className={styles.keyword__select_widget_box}>
-                        <li className={styles.select__widget__items}></li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className={styles.keyword__input_item_mainbox}>
-                    <div className={styles.keyword_inputfild__contbox}>
-                      <div className={styles.keyword__input_fildbox}>
-                        <label
-                          htmlFor="text"
-                          className={styles.seal__text_color}
-                        >
-                          <span></span>
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.add__domain_fild}
-                          placeholder="add domain"
-                        />
-                      </div>
-                      <div className={styles.select_domain_type}>
-                        <span className={styles.selected__item_text}>
-                          root domain  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                        </span>
-                        <ul className={styles.keyword__select_widget_box}>
-                          <li className={styles.select__widget__items}></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.select__keyword_type}>
-                      <span className={styles.selected__item_text}>
-                        organic keywords  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                      </span>
-                      <ul className={styles.keyword__select_widget_box}>
-                        <li className={styles.select__widget__items}></li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className={styles.keyword__input_item_mainbox}>
-                    <div className={styles.keyword_inputfild__contbox}>
-                      <div className={styles.keyword__input_fildbox}>
-                        <label
-                          htmlFor="text"
-                          className={styles.seal__text_color}
-                        >
-                          <span></span>
-                        </label>
-                        <input
-                          type="text"
-                          className={styles.add__domain_fild}
-                          placeholder="add domain"
-                        />
-                      </div>
-                      <div className={styles.select_domain_type}>
-                        <span className={styles.selected__item_text}>
-                          root domain  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                        </span>
-                        <ul className={styles.keyword__select_widget_box}>
-                          <li className={styles.select__widget__items}></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.select__keyword_type}>
-                      <span className={styles.selected__item_text}>
-                        organic keywords  <span className={styles.arrow_down}>< TfiAngleDown /></span>
-                      </span>
-                      <ul className={styles.keyword__select_widget_box}>
-                        <li className={styles.select__widget__items}></li>
-                      </ul>
-                    </div>
-                  </div> */}
+                    ))
+                  }
 
                   {/* =============== */}
+
                   <div className={styles.keyword__compare_controlbox}>
-                    <button className={styles.add__competitor_fild}>
+                    <button onClick={() => setMoreItem(!openMoreItem)} className={styles.add__competitor_fild}>
                       + Add up to 3 competitors
                     </button>
                     <div className={styles.competitor__controll_box}>
-                      <div className={styles.country__select_widget}>USA <span className={styles.arrow_down}>< TfiAngleDown /></span></div>
-                      <button className={styles.compare__button}>
+
+                    <CountrySelect />
+                      <button onClick={() => navigate("/keywordmannager/overview")} className={styles.compare__button}>
+
                         Compare
                       </button>
                     </div>
@@ -310,4 +181,4 @@ const keywordgap = () => {
   );
 };
 
-export default keywordgap;
+export default Keywordgap;
